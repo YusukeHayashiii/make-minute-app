@@ -1,0 +1,14 @@
+version: '3'
+services:
+    python3: 
+        container_name: "${COMPOSE_PROJECT_NAME}" # 起動時のコンテナ名
+        build: 
+            context: .
+            dockerfile: Dockerfile
+        working_dir: /workspace # コンテナ内の作業ディレクトリ
+        volumes: 
+            - ../:/workspace # [ホストのpath]：[コンテナのpath]
+        ports: # ホスト：コンテナのポート番号を指定。ホストは他コンテナと番号被らないようにする
+            # Streamlit用
+            - 7001:8501 
+        restart: always # コンテナを常に再起動
