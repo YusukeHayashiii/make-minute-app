@@ -10,5 +10,6 @@ services:
             - ../:/workspace # [ホストのpath]：[コンテナのpath]
         ports: # ホスト：コンテナのポート番号を指定。ホストは他コンテナと番号被らないようにする
             # Streamlit用
-            - 7001:8501 
-        restart: always # コンテナを常に再起動
+            - 7001:8501
+        tty: true
+        stdin_open: true
