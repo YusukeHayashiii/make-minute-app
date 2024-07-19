@@ -63,7 +63,8 @@ Pythonのライブラリのバージョンは requirements.txt を参照して�
 │   ├── devcontainer.json
 │   ├── docker-compose.yml
 │   ├── Dockerfile
-│   └── requirements.txt
+│   ├── requirements.txt
+│   └── .env(クローン後自分で作成する必要あり)
 ├── app.py
 ├── .env(クローン後自分で作成する必要あり)
 ├── .gitignore
@@ -93,12 +94,19 @@ Pythonのライブラリのバージョンは requirements.txt を参照して�
 
 .env ファイルを以下の環境変数例と[環境変数の一覧](#環境変数の一覧)を元に作成
 
+- ルートディレクトリの.envファイル
+
 ```.env
-COMPOSE_PROJECT_NAME=your_project_name
 AZURE_OPENAI_API_KEY=xxx
 AZURE_OPENAI_API_ENDPOINT=xxx
 AZURE_API_VERSION=xxx
 OPENAI_ENGINE_LLM=xxx
+```
+
+- /.devcontainer配下の.envファイル
+
+```.env
+COMPOSE_PROJECT_NAME=your_project_name
 ```
 
 .env ファイルを作成後、VScodeのコマンドパレットを開き、「開発コンテナー：コンテナーで再度開く」を押しコンテナを起動
