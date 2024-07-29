@@ -38,5 +38,6 @@ WORKDIR /workspace
 EXPOSE 8501
 
 # Streamlitを起動するための設定
-ENTRYPOINT ["streamlit", "run"]
-CMD ["app.py"]
+# ENTRYPOINT ["streamlit", "run"]
+# CMD ["app.py"]
+CMD ["bash"]

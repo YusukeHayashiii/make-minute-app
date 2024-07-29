@@ -2,10 +2,15 @@
 import sys
 from pathlib import Path
 import warnings
+# import yaml
+# from yaml.loader import SafeLoader
 # streamlit
+import streamlit as st
 from st_pages import Page, Section, show_pages, add_page_title
+# import streamlit_authenticator as stauth
 # original
 from st_components.st_session_states import initialize_session_state
+# import utils.functions as func
 
 warnings.filterwarnings('ignore')
 # appのディレクトリをパスに追加
@@ -29,6 +34,18 @@ def main():
 
 # ファイル実行
 if __name__ == "__main__":
-    # セッションステートの初期化
+    # 初期化とページ作成
     initialize_session_state()
     main()
+    # # ログインページの作成
+    # authenticator = func.make_authentication('utils/config.yaml')
+    # name, authentication_status, username = authenticator.login()
+    # if authentication_status:
+    #     # 認証に成功
+    #     authenticator.logout("Logout", "main")
+    # elif authentication_status == False:
+    #     # 認証に失敗(入力値が不正)
+    #     st.error("username/password is incorrect")
+    # elif authentication_status == None:
+    #     # 入力せずにログインを試みた場合
+    #     st.warning("Please enter your username and password")
