@@ -113,7 +113,7 @@ COMPOSE_PROJECT_NAME=your_project_name
 
 ### 動作確認
 
-http://localhost:7001 にアクセスできるか確認
+http://localhost:7001 にアクセスできるか確認(環境によってIPアドレスが異なる場合あり)
 アクセスできたら成功
 
 ### コンテナの停止
