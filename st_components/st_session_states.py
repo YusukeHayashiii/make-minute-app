@@ -3,11 +3,21 @@ import streamlit as st
 
 def initialize_session_state():
     default_values = {
+        # 認証
+        'authentication_status': None,
+        'name': None,
+        'username': None,
+        'authenticator': None,
+        'config': None,
+        'show_registration': False,
+        'registration_completed': None,
         # ファイルアップロード
         'raw_data': '',
         # 議事録作成
-        'prep_data': '', 'info_mask': '',
-        'minute': '', 'make_tim': '',
+        'prep_data': '',
+        'info_mask': '',
+        'minute': '',
+        'make_tim': '',
         'return_username': False,
         'minute_post': '',
     }

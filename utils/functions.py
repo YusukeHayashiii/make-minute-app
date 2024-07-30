@@ -4,14 +4,10 @@ import io
 import warnings
 import time
 from dotenv import load_dotenv
-# import yaml
-# from yaml.loader import SafeLoader
 
 from webvtt import WebVTT
 import pandas as pd
 import jaconv
-# import streamlit_authenticator as stauth
-# from openai import OpenAI
 from openai import AzureOpenAI as AOAI
 import openai
 
@@ -19,24 +15,6 @@ warnings.filterwarnings('ignore')
 # 環境変数の読み込み
 dotenv_path = '.env'
 load_dotenv(dotenv_path)
-
-
-# 認証 #####
-# def make_authentication(input):
-#     with open(input) as file:
-#         config = yaml.load(file, Loader=SafeLoader)
-
-#     # Pre-hashing all plain text passwords once
-#     stauth.Hasher.hash_passwords(config['credentials'])
-
-#     authenticator = stauth.Authenticate(
-#         credentials=config['credentials'],
-#         cookie_name=config['cookie']['name'],
-#         cookie_key=config['cookie']['key'],
-#         # cookie_expiry_days=config['cookie']['expiry_days'],
-#         cookie_expiry_days=0,
-#     )
-#     return authenticator
 
 
 # データ読み込み #####

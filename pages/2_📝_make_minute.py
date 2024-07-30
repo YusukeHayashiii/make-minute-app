@@ -7,11 +7,12 @@ import warnings
 import pandas as pd
 # streamlit
 import streamlit as st
-from st_pages import add_page_title
+# from st_pages import add_page_title
 
 # original
 import utils.functions as func
 import st_components.st_config as config
+from utils.auth import check_authentication
 import importlib
 importlib.reload(func)
 importlib.reload(config)
@@ -134,7 +135,9 @@ def postprocess():
 
 
 def main():
-    add_page_title()
+    # add_page_title()
+
+    st.title('議事録作成')
     # データの前処理
     preprocess()
     # 議事録の作成
@@ -144,4 +147,10 @@ def main():
 
 
 if __name__ == "__main__":
+    st.set_page_config(
+        page_title="make_minute",
+        page_icon="📝",
+    )
+    if not check_authentication():
+        st.stop()
     main()

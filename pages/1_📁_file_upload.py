@@ -5,10 +5,11 @@ import warnings
 
 # streamlit
 import streamlit as st
-from st_pages import add_page_title
+# from st_pages import add_page_title
 # original
 from st_components.st_session_states import initialize_session_state, reset_session_state
 import utils.functions as func
+from utils.auth import check_authentication
 import importlib
 importlib.reload(func)
 
@@ -59,7 +60,8 @@ def chk_data():
 
 
 def main():
-    add_page_title()
+    # add_page_title()
+    st.title('ファイルアップロード')
 
     if st.button('変数情報を初期化'):
         reset_session_state()
@@ -74,4 +76,10 @@ def main():
 
 
 if __name__ == "__main__":
+    st.set_page_config(
+        page_title="file_upload",
+        page_icon="📁",
+    )
+    if not check_authentication():
+        st.stop()
     main()

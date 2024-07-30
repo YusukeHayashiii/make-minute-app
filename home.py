@@ -1,11 +1,27 @@
+# basic
+import sys
+from pathlib import Path
+import warnings
 # streamlit
 import streamlit as st
-from st_pages import add_page_title
+# from st_pages import add_page_title
 from st_components.st_session_states import initialize_session_state
+import utils.functions as func
+import utils.auth as auth
+import importlib
+importlib.reload(func)
+importlib.reload(auth)
+
+warnings.filterwarnings('ignore')
+# homeのディレクトリをパスに追加
+current_dir = Path(__file__).absolute()
+parent_dir = current_dir.parent
+sys.path.append(str(parent_dir))
 
 
 def home_page():
-    add_page_title()
+    # add_page_title()
+    st.title('ホーム')
 
     # 説明
     st.header('このアプリについて')
@@ -67,6 +83,13 @@ def home_page():
 
 # ファイル実行
 if __name__ == "__main__":
+    # ページ設定
+    st.set_page_config(
+        page_title="Home",
+        page_icon="🏠",
+    )
     # セッションステートの初期化
     initialize_session_state()
-    home_page()
+    # 認証チェック
+    if auth.check_authentication():
+        home_page()
