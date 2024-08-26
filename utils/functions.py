@@ -43,7 +43,8 @@ def txt_to_dataframe(data):
     '''
     txtデータをpandas.DataFrameに変換する
     '''
-    pattern = r'\[(\w+)\] (\d{2}:\d{2}:\d{2})\n((?:(?!\[).)*(?:\n(?!\[).*)*)'
+    # pattern = r'\[([\w\s]+)\] (\d{2}:\d{2}:\d{2})\n((?:(?!\[).)*(?:\n(?!\[).*)*)'
+    pattern = r'\[([\w\s]+)\] (\d{2}:\d{2}:\d{2})\s*\n((?:(?!\[).)*(?:\n(?!\[).*)*)'
     # パターンにマッチする部分を抽出
     matches = re.findall(pattern, data, re.DOTALL)
     # データフレームを作成
